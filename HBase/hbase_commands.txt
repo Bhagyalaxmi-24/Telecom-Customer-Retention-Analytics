@@ -1,1 +1,72 @@
 
+HBase Commands – Telecom Customer Retention Analytics
+
+1. Start HBase shell
+
+hbase shell
+
+
+2. Create the HBase table
+
+create 'churn_segments', 'metrics'
+
+
+3. Describe the table
+
+describe 'churn_segments'
+
+
+4. Insert overall churn result
+
+put 'churn_segments', 'overall', 'metrics:total_customers', '7043'
+put 'churn_segments', 'overall', 'metrics:churned_customers', '1869'
+put 'churn_segments', 'overall', 'metrics:churn_rate', '26.54'
+
+
+5. Insert contract segment results
+
+put 'churn_segments', 'contract_month_to_month', 'metrics:total_customers', '3875'
+put 'churn_segments', 'contract_month_to_month', 'metrics:churned_customers', '1655'
+put 'churn_segments', 'contract_month_to_month', 'metrics:churn_rate', '42.71'
+
+put 'churn_segments', 'contract_one_year', 'metrics:total_customers', '1473'
+put 'churn_segments', 'contract_one_year', 'metrics:churned_customers', '166'
+put 'churn_segments', 'contract_one_year', 'metrics:churn_rate', '11.27'
+
+put 'churn_segments', 'contract_two_year', 'metrics:total_customers', '1695'
+put 'churn_segments', 'contract_two_year', 'metrics:churned_customers', '48'
+put 'churn_segments', 'contract_two_year', 'metrics:churn_rate', '2.83'
+
+
+6. Insert tenure segment results
+
+put 'churn_segments', 'tenure_0_12', 'metrics:total_customers', '2186'
+put 'churn_segments', 'tenure_0_12', 'metrics:churned_customers', '1037'
+put 'churn_segments', 'tenure_0_12', 'metrics:churn_rate', '47.44'
+
+put 'churn_segments', 'tenure_13_24', 'metrics:total_customers', '1024'
+put 'churn_segments', 'tenure_13_24', 'metrics:churned_customers', '294'
+put 'churn_segments', 'tenure_13_24', 'metrics:churn_rate', '28.71'
+
+put 'churn_segments', 'tenure_25_48', 'metrics:total_customers', '1594'
+put 'churn_segments', 'tenure_25_48', 'metrics:churned_customers', '325'
+put 'churn_segments', 'tenure_25_48', 'metrics:churn_rate', '20.39'
+
+put 'churn_segments', 'tenure_49_72', 'metrics:total_customers', '2239'
+put 'churn_segments', 'tenure_49_72', 'metrics:churned_customers', '213'
+put 'churn_segments', 'tenure_49_72', 'metrics:churn_rate', '9.51'
+
+
+7. Verify all HBase records
+
+scan 'churn_segments'
+
+
+8. Check HBase status
+
+status
+
+
+9. List tables
+
+list
