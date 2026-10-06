@@ -1,1 +1,44 @@
+HDFS Commands – Telecom Customer Retention Analytics
 
+1. Create project directories
+
+hdfs dfs -mkdir -p /data/telecom/raw
+hdfs dfs -mkdir -p /data/telecom/processed
+hdfs dfs -mkdir -p /data/telecom/results
+
+2. Upload the raw dataset
+
+hdfs dfs -put /tmp/Telco-Customer-Churn.csv /data/telecom/raw/
+
+3. Verify the uploaded dataset
+
+hdfs dfs -ls /data/telecom/raw
+
+4. Check the dataset size
+
+hdfs dfs -du -h /data/telecom/raw/Telco-Customer-Churn.csv
+
+5. View the first few records
+
+hdfs dfs -cat /data/telecom/raw/Telco-Customer-Churn.csv | head
+
+6. Verify HDFS directories
+
+hdfs dfs -ls /data/telecom
+hdfs dfs -ls /data/telecom/results
+
+7. Hive results stored in HDFS
+
+/data/telecom/results/overall_churn/000000_0
+/data/telecom/results/churn_by_contract/000000_0
+/data/telecom/results/churn_by_tenure/000000_0
+
+8. Spark results stored in HDFS
+
+/data/telecom/results/spark_churn_by_contract
+/data/telecom/results/spark_churn_by_tenure
+
+9. Verify Spark output files
+
+hdfs dfs -ls /data/telecom/results/spark_churn_by_contract
+hdfs dfs -ls /data/telecom/results/spark_churn_by_tenure
